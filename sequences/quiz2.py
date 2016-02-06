@@ -32,6 +32,11 @@ def graph_from_adjacency(d):
         for n2 in conns:
             g.add_edge(n, n2)
 
+    for n in g.nodes():
+        in_deg = len(g.predecessors(n))
+        out_deg = len(g.successors(n))
+        print 'node %d: in=%d, out=%d' % (n, in_deg, out_deg)
+
     return g
 
 
@@ -58,6 +63,13 @@ def pair_composition(pair_mers):
 
         g.add_edge(n1, n2, label=kmer)
 
+    for n in g.nodes():
+        in_deg = len(g.predecessors(n))
+        out_deg = len(g.successors(n))
+        print 'node %s: in=%d, out=%d' % (n, in_deg, out_deg)
+
+    print 'Pair composition: is_eulerian=%d' % (nx.is_eulerian(g))
+
     return g
 
 
@@ -75,14 +87,14 @@ if __name__ == '__main__':
     """
 
     """
-    g = graph_from_adjacency({1:[2, 3, 5], 2:[1, 4], 3:[2, 5], 4:[1, 2, 5], 5:[3, 4]})
+    g = graph_from_adjacency({1:[2, 3, 5], 2:[4], 3:[2, 5], 4:[1, 2, 5], 5:[3]})
 
     pos = nx.pygraphviz_layout(g, prog='dot', root=0)
     nx.draw_networkx(g, pos=pos, node_color='w', node_size=600,
                      labels={n:n for n in g.nodes()})
     plt.show()
     """
-    
+
     pairs = ['ACC|ATA',
             'ACT|ATT',
             'ATA|TGA',
@@ -109,7 +121,4 @@ if __name__ == '__main__':
                      labels={n:n for n in g.nodes()})
     nx.draw_networkx_edge_labels(g, pos=pos, edge_labels=nx.get_edge_attributes(g, 'label'))
     plt.show()
-
-
-
 
