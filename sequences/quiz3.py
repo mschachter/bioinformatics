@@ -117,16 +117,16 @@ if __name__ == '__main__':
 
     # print rna_multiplicity('LEADER')
 
-    # print cyclopeptide_spectrum('MAIT')
+    print cyclopeptide_spectrum('MAIT')
     # print cyclopeptide_spectrum('TMIA')
     # print cyclopeptide_spectrum('TLAM')
     # print cyclopeptide_spectrum('MLAT')
     # print cyclopeptide_spectrum('TALM')
     # print cyclopeptide_spectrum('TAIM')
 
-    print linear_peptide_spectrum('TVQ')
-    print linear_peptide_spectrum('AQV')
-    print linear_peptide_spectrum('CTQ')
-    print linear_peptide_spectrum('CET')
-    print linear_peptide_spectrum('AVQ')
-    print linear_peptide_spectrum('CTV')
+    # print linear_peptide_spectrum('TVQ')
+    # print linear_peptide_spectrum('AQV')
+    # print linear_peptide_spectrum('CTQ')
+    # print linear_peptide_spectrum('CET')
+    # print linear_peptide_spectrum('AVQ')
+    # print linear_peptide_spectrum('CTV')
